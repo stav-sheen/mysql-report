@@ -1,0 +1,54 @@
+a.	As_company – a table holding the following columns:
+	i.	Id (int) – the ID of the company. 
+	ii.	Name (String) – The company name.
+b.	As_account – a table holding the following columns:
+	i.	Id (int) – the ID of the account.
+	ii.	Name (String) – The Account system.
+	iii.Company_id (int) – The company that this account is under
+c.	As_project – a table holding the following columns:
+	i.	  Id (int) - the ID of the project.
+	ii.	  Name (String) – The Project system.
+	iii.  Account_id (int) – The Account that this project is under
+	iv.	Status (int) – The project Status:
+		1.	0 - Inactive
+		2.	1 – Active
+		3.	2 – Frozen
+d.	Insert a few lines to each of the above.
+
+
+
+
+CREATE TABLE As_company
+(
+  id              INT unsigned NOT NULL, 
+  name            VARCHAR(150) NOT NULL                
+);
+CREATE TABLE As_account
+(
+  id              INT unsigned NOT NULL, 
+  name            VARCHAR(150) NOT NULL,                
+  Company_id          INT unsigned NOT NULL               
+);
+CREATE TABLE As_project0
+(
+  id              INT unsigned NOT NULL ,
+  name            VARCHAR(150) NOT NULL,
+  Account_id      INT unsigned NOT NULL ,                
+  status          INT unsigned NOT NULL 
+);
+
+INSERT INTO As_company ( id, name) VALUES
+  ( '1', 'Apple'),
+  ( '2', 'Tesla' ),
+  ( '3', 'Googs');
+
+INSERT INTO As_account ( id, name, Company_id) VALUES
+  ( '11', 'Prod','1' ),
+  ( '12', 'Prod', '2' ),
+  ( '13', 'Dev', '3' );
+
+INSERT INTO As_project ( id, name, Account_id, Status ) VALUES
+  ( '21', 'upgrade', '11', '0'),
+  ( '22', 'debugger', '12' , '2' ),
+  ( '23', 'restore', '13', '1');
+

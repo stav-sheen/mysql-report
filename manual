@@ -1,0 +1,2 @@
+ docker container run -dit -p 3306:3306 -v /tmp/_data:/var/lib/mysql --net mysql-net --hostname apollo --name apollo reportdb:latest
+docker container run -dit -p 9980:80 --net mysql-net --hostname plutus --name plutus reportapp

@@ -1,0 +1,14 @@
+FROM mysql:latest AS builder
+RUN mkdir -p /data/reporter
+WORKDIR /data/reporter
+COPY . .
+RUN ./query.sh
+
+FROM nginx
+RUN rm /etc/nginx/conf.d/*
+RUN rm /etc/nginx/nginx.conf
+COPY ./nginx.conf /etc/nginx/
+RUN mkdir -p /data/reporter
+COPY --from=builder /data/reporter/index.html /data/reporter/
+EXPOSE 80 9980
+
