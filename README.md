@@ -4,13 +4,21 @@
 =============
 
 1.Clone repo
+
 2.Copy ./dbsetup/_data to /tmp/_data
-3.Build image in ./dbsetup 
+
+3.Build image in ./dbsetup
+
 4.Run db container using command:   
+
 `docker container run -dit -p 3306:3306 -v /tmp/_data:/var/lib/mysql --name apollo <image_name>`
+
 5.In ./webapp/query.sh change the -h flag value to your host ip 
+
 6.Build image in ./webapp 
+
 7.Run app container using command:
+
 `docker container run -dit -p 9980:80 --name plutus <image_name>`
 
 ##QUESTIONS:
